@@ -1,1 +1,34 @@
-<h1>Login route</h1>
+<h2 class="ui center aligned small icon header">
+  <i class="circular blue user icon"></i>
+  Time to get in !
+</h2>
+<div class="ui placeholder segment" style = "position: relative">
+  <div class="ui two column middle aligned very relaxed stackable grid container" >
+    <div class="column">
+      <%= form_for(:session, html: { class: "ui form", role: "form" }, url: login_path) do |f| %>
+        <div class="field">
+          <%= f.label :username, "Username" %>
+          <div class="ui left icon input">
+            <%= f.text_field :username, placeholder: 'Username' %>
+            <i class="user icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <%= f.label :password, "Password" %>
+          <div class="ui left icon input">
+            <%= f.password_field :password, placeholder: 'Password' %>
+            <i class="lock icon"></i>
+          </div>
+        </div>
+        <%= f.button "Login", class: 'ui submit button blue' %>
+      <% end %>
+    </div>
+    <div class="middle aligned column">
+      <div class="ui big blue button">
+        <i class="signup icon"></i>
+        Sign Up
+      </div>
+    </div>
+  </div>
+  <div class="ui vertical divider">OR</div>
+</div>

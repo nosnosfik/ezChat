@@ -1,42 +1,26 @@
 <h2 class="ui center aligned small icon header">
-  <i class="circular users icon"></i>
+  <i class="circular blue users icon"></i>
   Hello bro let's talk a bit
 </h2>
 <div class="ui two column grid">
   <div class="twelve wide column">
     <div class="ui fluid raised card chatbox">
       <div class="content">
-        <div class="ui small feed">
-          <h4 class="ui header">Followers Activity</h4>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <a>Elliot Fu</a> added <a>Jenny Hess</a> as a friend
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <a>Stevie Feliciano</a> added <a>Elliot Fu</a> as a friend
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <a>Helen Troy</a> added <a>Christian Rocha</a> as a friend
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                <a>Christian Rocha</a> signed up for the  site.
-              </div>
-            </div>
-          </div>
+        <div class="ui feed">
+          <%= render @messages %>
         </div>
+      </div>
+      <div class="extra content">
+        <%= form_for(@message, html: { class: "ui reply form", role: 'form' }, url: message_path) do |f| %>
+          <div class="field">
+            <div class="ui action fluid mini input">
+              <%= f.text_field :body %>
+              <%= button_tag( :class => "ui blue icon button chatfield_button") do %>
+                <i class="reply link icon"></i>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -44,8 +28,7 @@
     <div class="ui fluid raised card chatbox">
       <div class="content">
         <div class="ui vertical text menu">
-          <div class="header item">Bratuni</div>
-          <a class="active item">
+          <a class="item">
             Closest
           </a>
           <a class="item">

@@ -1,0 +1,12 @@
+<div class="ui two column centered grid">
+  <div class="column">
+    <% flash.each do |msg_type, msg_content| %>
+      <div class="ui <%= msg_type %> message">
+        <i class="close icon"></i>
+        <div class="header">
+          <%= msg_content %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

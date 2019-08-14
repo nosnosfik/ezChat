@@ -1,8 +1,6 @@
 <div class="ui tiny menu">
   <div class="ui container">
-    <a class="active item">
-      Chatroom
-    </a>
+    <%= link_to 'Chatroom', root_path, class: 'item' %>
     <a class="item">
       Messages
     </a>
@@ -10,14 +8,23 @@
       <div class="ui dropdown item">
         Account <i class="dropdown icon"></i>
         <div class="menu">
-          <a class="item">English</a>
-          <a class="item">Russian</a>
-          <a class="item">Spanish</a>
+          <% if logged_in? %>
+            <%= link_to "Logout", logout_path, method: :delete, class: 'item' %>
+          <%else %>
+            <a class="item">Russian</a>
+            <a class="item">Spanish</a>
+          <% end %>
         </div>
       </div>
-      <div class="item">
-        <%= link_to 'Login', login_path, class: 'ui primary button' %>
-      </div>
+      <% if !logged_in? %>
+        <div class="item">
+              <%= link_to 'Login', login_path, class: 'ui primary button' %>
+        </div>
+      <%else %>
+        <div class="item">
+          <%= link_to 'Logout', logout_path, method: :delete, class: 'ui primary button' %>
+        </div>
+      <%   end %>
     </div>
   </div>
 </div>
