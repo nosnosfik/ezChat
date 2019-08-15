@@ -7,3 +7,8 @@
 .chatfield_button {
   padding: 0 0.3em!important;
 }
+
+#messages {
+  height: 270px;
+  overflow: auto;
+}
